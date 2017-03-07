@@ -1,0 +1,30 @@
+{# empty Twig template #}
+Dear {{ user.name }},
+<br>
+
+<br>
+We have sent this email to let you have a copy of our latest magazine.
+<br>
+
+<br>
+We have attached a copy  of the magazine, also you can read it on our website by follow the link below.
+<br>
+<br>
+<a href="{{ generate_url('magazines.magazines.detail',{'id':magazine.id}, 0) }}"> {{ "now"|date('M') }} Current Magazine</a>
+<br>
+<br>
+or copy this link to you browser url bar;
+<br>
+{{ generate_url('magazines.magazines.detail',{'id':magazine.id}, 0) }}
+<br>
+<br>
+<br>
+If you need any help, please let us know so that we can assist you.
+<br>
+
+<br>
+
+<br>
+
+<br>
+Thank You

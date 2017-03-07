@@ -1,0 +1,16 @@
+[{
+        "tracking_id": "1",
+        "controller": "Magazines\\Magazines\\Code\\Controllers\\MagazinesController",
+        "function": "cronaddusermagazineAction",
+        "unique_name": "magazines.magazines.cronaddusermagazine",
+        "minute": "0",
+        "hour": "*",
+        "day_of_month": "*",
+        "month": "*",
+        "day_of_week": "*",
+        "year": "*",
+        "next_run_time": "",
+        "published": 1
+
+    }]
+

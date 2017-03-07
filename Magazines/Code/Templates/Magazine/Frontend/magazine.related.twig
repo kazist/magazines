@@ -1,0 +1,40 @@
+{# empty Twig template #}
+
+{% set params = { 'magazine_id': magazine_id } %}
+
+{% set related_magazines = callFunction( "Magazine.Components.Magazine.Models.MagazineModel", 'getRelatedMagazine', params ) %}
+
+<div class="component-magazines">
+
+    {% if related_magazines|length > 0 %}
+        {% for key,magazine in related_magazines %}
+
+            {% set magazine_url =  friendly_url('app=magazine&com=magazine&subset=magazine&view=detail&id=' ~ magazine.id) %}
+            {% set category_url =  friendly_url('app=magazine&com=category&subset=category&view=detail&id=' ~ magazine.category_id) %}
+
+            <div class="col-sm-4">
+                <div class="component-magazine">
+                    <h4>
+                        <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                            {{ magazine.title }}
+                        </a>
+                    </h4>
+                    <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                        <img src="{{ resized_image(magazine.image_file,300,300) }}" alt="{{ magazine.title }}" title="{{ magazine.title }}"/>
+                    </a>
+                    <br>
+                    <b>Category:</b>
+                    <a href="{{ category_url }}" title="{{ magazine.category_id_join }}">
+                        {{ magazine.category_id_join }}
+                    </a>
+                    <br>
+                    <a class="col-sm-12 btn btn-success btn-xs btn-flat" href="{{ magazine_url }}" title="View Magazine">View Magazine</a>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        No Related Magazines
+    {% endif %}
+</div>

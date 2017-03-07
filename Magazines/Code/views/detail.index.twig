@@ -1,0 +1,67 @@
+{# empty Twig template #}
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Magazines/assets/css/magazine.css') }}
+
+{{ set_assets('applications/Magazines/assets/js/magazine.js') }}
+
+<h1 class="component-header">{{ item.title }}</h1>
+
+<div class="magazine-posted-date">
+    <i class="fa fa-clock-o"></i> Posted:  {{ item.date_created|date('d M Y H:i') }} &nbsp;&nbsp;
+</div>
+
+
+<div class="magazine-viewport">
+    {% set magazine_dowload_url =  generate_url('magazines.magazines.download', {'id': item.id}) %}
+    {% set magazine_preview_url =  generate_url('magazines.magazines.detail', {'id': item.id, 'view':'preview'}) %}
+    {% set category_url =  generate_url('magazines.categories.detail', {'id': item.category_id}) %}
+
+    <div class="col-sm-6">
+        <img src="{{ resized_image(item.image_file,400,null,'fit') }}" alt="{{ magazine.title }}" title="{{ magazine.title }}"/>
+        <br>
+        <br>
+        <a class="btn btn-success btn-sm btn-flat" href="{{ magazine_preview_url }}" title="Download Magazine"> Preview This Magazine</a>
+        <a class="btn btn-primary btn-sm btn-flat" href="{{ magazine_dowload_url }}" title="Download Magazine">Download</a>
+
+    </div>
+    <div class="col-sm-6">
+
+        <div class="headline">
+            <h3>Content</h3>
+        </div>
+
+        {{ item.description|raw }}
+        <br>
+        <a class="btn btn-success btn-sm btn-flat" href="{{ magazine_preview_url }}" title="Download Magazine"> Preview This Magazine</a>
+        <a class="btn btn-primary btn-sm btn-flat" href="{{ magazine_dowload_url }}" title="Download Magazine">Download</a>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div> 
+    <br>
+    <br>
+    <div class="well well-sm">Related Magazines</div>
+    {% include "magazine.related.twig" ignore missing with {'magazine_id': item.id}  %}
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="magazinePreviewModal" tabindex="10" role="dialog" aria-labelledby="magazinePreviewModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="magazinePreviewModalLabel">Magazine Preview</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="{{ web_root }}viewerjs/index.html#{{ web_root }}{{ item.file_file }}" style="width: 100%; height: 500px;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

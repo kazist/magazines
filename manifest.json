@@ -1,0 +1,9 @@
+{
+    "name": "magazines",
+    "title": "Magazine Listing",
+    "icon": "icons\/magazines.png",
+    "extension": "component",
+    "path": "magazines\/",
+    "description": "Magazine Listing",
+    "version": 1
+}

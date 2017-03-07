@@ -1,0 +1,14 @@
+{
+    "MagazinesCategories": {
+        "namespace": "Magazines\\Categories",
+        "controller": "CategoriesController"
+    },
+    "MagazinesMagazines": {
+        "namespace": "Magazines\\Magazines",
+        "controller": "MagazinesController"
+    },
+    "MagazinesMagazinesUsers": {
+        "namespace": "Magazines\\Magazines\\Users",
+        "controller": "UsersController"
+    }
+}

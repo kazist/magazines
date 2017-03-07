@@ -1,0 +1,6 @@
+[{
+        "name": "magazine_magazine_limit_subscription",
+        "label": "Recaptcha Site Key",
+        "default": "1",
+        "type": "yesno"
+    }]

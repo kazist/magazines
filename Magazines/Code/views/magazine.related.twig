@@ -1,0 +1,42 @@
+{# empty Twig template #}
+
+{% set params = { 'magazine_id': magazine_id } %}
+
+{% set related_magazines = callFunction( "Magazines.Magazines.Code.Models.MagazinesModel", 'getRelatedMagazine', params ) %}
+
+<div class="component-magazines">
+
+    {% if related_magazines|length > 0 %}
+        {% for key,magazine in related_magazines %}
+
+            {% set magazine_dowload_url =  generate_url('magazines.magazines.download', {'id': magazine.id}) %}
+            {% set magazine_url =  generate_url('magazines.magazines.detail', {'id': magazine.id}) %}
+            {% set category_url =  generate_url('magazines.categories.detail', {'id': magazine.category_id}) %}
+
+            <div class="col-sm-3">
+                <div class="component-magazine">
+                    <h4>
+                        <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                            {{ magazine.title }}
+                        </a>
+                    </h4>
+                    <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                        <img src="{{ resized_image(magazine.image_file,300,300) }}" alt="{{ magazine.title }}" title="{{ magazine.title }}"/>
+                    </a>
+                    <br>
+                    <b>Category:</b>
+                    <a href="{{ category_url }}" title="{{ magazine.category_id_join }}">
+                        {{ magazine.category_id_join }}
+                    </a>
+                    <br>
+                    <a class="btn btn-success btn-sm btn-flat" href="{{ magazine_url }}" title="View Magazine">More Info</a>
+                    <a class="btn btn-primary btn-sm btn-flat pull-right" href="{{ magazine_dowload_url }}" title="Download Magazine">Download</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        No Related Magazines
+    {% endif %}
+</div>

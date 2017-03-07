@@ -1,0 +1,163 @@
+{
+    "frontend": [{
+            "title": "Magazine List",
+            "description": "Management of Magazines.",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\MagazinesController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "magazines.magazines.users",
+            "route": "magazines/magazines/users",
+            "arguments": "",
+            "keywords": "magazine, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Magazine Detail: {{ item.name }}",
+            "description": "Magazine Detail: {{ item.name }}",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\MagazinesController::detailAction",
+            "unique_name": "magazines.magazines.users.detail",
+            "route": "magazines/magazines/users/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "magazine, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::taskAction",
+            "unique_name": "admin.magazines.magazines.users.task",
+            "route": "admin/magazines/magazines/users/task",
+            "permissions": "can_write",
+            "arguments": "",
+            "keywords": "magazines, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_write"],
+                "ADMIN": ["can_write"]
+            }
+        }, {
+            "title": "Magazine List",
+            "description": "Management of Magazines.",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.magazines.magazines.users",
+            "route": "admin/magazines/magazines/users",
+            "arguments": "",
+            "keywords": "magazine, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Magazine",
+            "description": "Add Magazine.",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::addAction",
+            "unique_name": "admin.magazines.magazines.users.add",
+            "route": "admin/magazines/magazines/users/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "magazine, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Magazine {{ item.name }}",
+            "description": "Edit Magazine {{ item.name }}.",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::editAction",
+            "unique_name": "admin.magazines.magazines.users.edit",
+            "route": "admin/magazines/magazines/users/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "magazine, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_write", "can_writeown"],
+                "ADMIN": ["can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Magazine Detail: {{ item.name }}",
+            "description": "Magazine Detail: {{ item.name }}",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::detailAction",
+            "unique_name": "admin.magazines.magazines.users.detail",
+            "route": "admin/magazines/magazines/users/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "magazine, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Magazine Delete: {{ item.name }}",
+            "description": "Magazine Delete: {{ item.name }}",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::deleteAction",
+            "unique_name": "admin.magazines.magazines.users.delete",
+            "route": "admin/magazines/magazines/users/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "magazine, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Magazine Save: {{ item.name }}",
+            "description": "Magazine Save: {{ item.name }}",
+            "controller": "Magazines\\Magazines\\Users\\Code\\Controllers\\Admin\\MagazinesController::saveAction",
+            "unique_name": "admin.magazines.magazines.users.save",
+            "route": "admin/magazines/magazines/users/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "magazine, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

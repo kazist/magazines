@@ -1,0 +1,9 @@
+{
+    "layout": [{
+            "tracking_id": "1",
+            "unique_name": "magazines.magazines.subscription",
+            "subject": "Find Our Current Magazine Issue",
+            "sms": "Find Our Current Magazine Issue",
+            "body": " Attached is a copy of the magazine."
+        }]
+}

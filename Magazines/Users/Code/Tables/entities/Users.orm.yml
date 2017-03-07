@@ -1,0 +1,48 @@
+Magazines\Magazines\Users\Code\Tables\Users:
+  table: magazines_magazines_users
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    user_id:
+      name: user_id
+      type: string
+      length: 255
+      nullable: false
+    magazine_id:
+      name: magazine_id
+      type: integer
+      length: 11
+      nullable: false
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    user_id_index:
+      columns: [user_id]
+    magazine_id_index:
+      columns: [magazine_id]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

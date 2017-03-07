@@ -1,0 +1,57 @@
+{# empty Twig template #}
+
+{{ set_assets('applications/Magazine/Components/assets/css/magazine.css') }}
+
+{% set item_url = friendly_url('app=magazine&com=magazine&subset=magazine&view=detail&id='~ items.0.id)  %}
+
+<div class="component-magazines">
+    {% if items|length > 0 %}
+
+        {% set div_row_begin = '<div class="magazine-row-magazine">' %}
+        {% set div_row_end = '</div>' %}
+
+        {{ div_row_begin|raw }}
+
+        {% for key,magazine in items%}
+
+            {% set magazine_url =  friendly_url('app=magazine&com=magazine&subset=magazine&view=detail&id=' ~ magazine.id) %}
+            {% set category_url =  friendly_url('app=magazine&com=category&subset=category&view=detail&id=' ~ magazine.category_id) %}
+
+            <div class="col-sm-4">
+                <div class="component-magazine">
+                    <h4>
+                        <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                            {{ magazine.title }}
+                        </a>
+                    </h4>
+                    <a href="{{ magazine_url }}" title="{{ magazine.title }}">
+                        <img src="{{ resized_image(magazine.image_file,300,300) }}" alt="{{ magazine.title }}" title="{{ magazine.title }}"/>
+                    </a>
+                    <br>
+                    <b>Category:</b>
+                    <a href="{{ category_url }}" title="{{ magazine.category_id_join }}">
+                        {{ magazine.category_id_join }}
+                    </a>
+                    <br>
+                    <a class="col-sm-12 btn btn-success btn-xs btn-flat" href="{{ magazine_url }}" title="View Magazine">View Magazine</a>
+                    <div class="clr"></div>
+                </div>
+            </div>
+
+            {% if not (key+1) % 3   %}
+                {{ div_row_end|raw }}
+                {{ div_row_begin|raw }}
+            {% elseif  key+1 == items|length %}
+                {{ div_row_end|raw }}
+            {% endif %}
+
+        {% endfor %}
+    {% else %}
+        No Products
+    {% endif %}
+</div>
+
+
+<div class="clr"></div>
+
+{% include "items.pagination.twig"%}

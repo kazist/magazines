@@ -1,0 +1,7 @@
+{{ set_assets('applications/Magazines/Addons/Magazine/assets/css/style.css') }}
+
+<div class="magazine-block">
+    <a href="{{ generate_url('magazines.magazines.detail', {'id': magazine.id}) }}" title="{{ magazine.title }}">
+        <img src="{{ resized_image(magazine.magazine_image,300,300) }}" alt="{{ magazine.title }}" title="{{ magazine.title }}" >
+    </a>
+</div>
