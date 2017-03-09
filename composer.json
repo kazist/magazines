@@ -1,0 +1,15 @@
+{
+    "name": "kazist/magazines",
+    "description": "Kazist Magazines Manager.",
+    "keywords": ["kazist", "magazine manager"],
+    "homepage": "https://github.com/kazist/magazines",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Dedan Irungu",
+            "email": "info@emshyinnovate.com",
+            "homepage": "http://emshyinnovate.com",
+            "role": "Founder & Developer"
+        }
+    ]
+}
