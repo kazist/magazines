@@ -1,9 +1,9 @@
 {
-    "name": "magazines",
+    "name": "kazist/magazines",
     "title": "Magazine Listing",
     "icon": "icons\/magazines.png",
     "extension": "component",
-    "path": "magazines\/",
+    "path": "applications/Magazines/",
     "description": "Magazine Listing",
     "version": 1
 }
