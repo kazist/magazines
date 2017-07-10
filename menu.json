@@ -2,18 +2,20 @@
     "title": "Magazines",
     "description": "Magazines Advertisement",
     "alias": "magazines",
-    "icon": "fa-picture-o",
+    "icon": "fa fa-picture-o",
     "home_link": "magazines\/magazines",
     "is_core": "1",
     "menulist": [{
             "title": "Magazines",
             "alias": "admin_magazines_magazines",
             "url": "admin/magazines/magazines",
+            "icon": "fa fa-picture-o",
             "children": []
         }, {
             "title": "Categories",
             "alias": "admin_magazines_categories",
             "url": "admin/magazines/categories",
+            "icon": "fa fa-navicon",
             "children": []
         }]
 }
