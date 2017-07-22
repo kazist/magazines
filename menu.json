@@ -4,6 +4,7 @@
     "alias": "magazines",
     "icon": "fa fa-picture-o",
     "home_link": "magazines\/magazines",
+    "path": "applications/Magazines",
     "is_core": "1",
     "menulist": [{
             "title": "Magazines",
